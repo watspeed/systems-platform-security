@@ -5,7 +5,7 @@ the Ubuntu operating system (a Linux distribution) and
 its command-line interface (i.e., shell).
 
 We achieve this with an exercise on
-setting-up a secure practice environment for the rest of this course.
+setting up a secure practice environment for the rest of this course.
 In this lab, we will touch base on concepts and technologies including:
 
 - Virtual machines (VM): backed by Vagrant and VirtualBox
@@ -19,7 +19,7 @@ running inside the container of your VM.
 
 You should see a terminal display alongside this lab guide.
 However, should you prefer to connect to the cloud machine in alternative ways,
-Please refer to the [CloudLabs documentation](https://docs.cloudlabs.ai/Learner/ConnectToTheVM)
+please refer to the [CloudLabs documentation](https://docs.cloudlabs.ai/Learner/ConnectToTheVM)
 for the instructions to connect to the cloud machine assigned to you.
 
 Note that you will need
@@ -27,7 +27,7 @@ Note that you will need
 to make the connection,
 which can be found in the `Environment` tab on the lab manual page.
 
-## Step 1: update the installed packages
+## Step 1: Update the installed packages
 
 Once you established a connection to the cloud machine,
 run the following commands in the terminal:
@@ -42,11 +42,11 @@ up to date.
 `apt` is the command for the [package manager](https://ubuntu.com/server/docs/package-management)
 on Ubuntu, which we will use a lot through this course.
 
-## Step 2: install VM-related packages
+## Step 2: Install VM-related packages
 
 As we will be learning attacks and defenses in this course,
 it is not a bad idea to run the experiments in an isolated environment.
-In this step, we will setup our first level of isolation ---
+In this step, we will setup our first level of isolation --
 a virtual machine (VM).
 
 More specifically, we will be using
@@ -62,7 +62,7 @@ so we can simply install them via
 sudo apt-get install -y virtualbox vagrant
 ```
 
-## Step 3: launch your first VM
+## Step 3: Launch your first VM
 
 In order for `vagrant` to manage a VM,
 you need to provide a `Vagrantfile`.
@@ -92,7 +92,7 @@ vagrant up
 This will launch and provision the VM.
 It may take a couple of minutes before the VM is ready to use.
 
-## Step 4: install Docker inside the VM
+## Step 4: Install Docker inside the VM
 
 To get inside the VM, use the following command:
 
@@ -141,7 +141,7 @@ When the container runs, it prints a confirmation message and exits.
 If you see the confirmation message,
 you have now successfully installed and started Docker Engine.
 
-## Step 5: run the Apache Docker image as a sandboxed webserver
+## Step 5: Run the Apache Docker image as a sandboxed webserver
 
 The official Apache image on Docker Hub is `httpd`.
 Download the image to your VM with the `docker pull` command:
