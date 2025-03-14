@@ -1,0 +1,13 @@
+[
+    {
+        "Name": "Lab 1 - Docker Inside Virtual Machine",
+        "Language": "English",
+        "BaseURL": "https://github.com/watspeed/systems-platform-security/tree/main",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab1/lab1-guide.md",
+                "Order": 1
+            }
+        ]
+    }
+]
