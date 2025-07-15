@@ -1,6 +1,6 @@
 # Lab 2 - Buffer Overflows
 
-Buffer overflow is defined as the condition in which
+A buffer overflow is defined as the condition in which
 a program attempts to write data beyond the boundary of a buffer.
 This vulnerability can be used by a malicious user
 to alter the flow control of the program,
@@ -56,7 +56,7 @@ sudo sysctl -w kernel.randomize_va_space=0
 sudo ln -sf /bin/zsh /bin/sh
 ```
 
-## Step 1: getting familiar with shellcode
+## Step 1: Getting familiar with shellcode
 
 The ultimate goal of buffer-overflow attacks is
 to inject malicious code into the target program,
@@ -149,10 +149,10 @@ without this option, the program will fail.
 Now run the `./a32.out` and `./a64.out` binaries and
 observe what these shellcode programs do.
 
-## Step 2: understanding the vulnerable program
+## Step 2: Understanding the vulnerable program
 
 The vulnerable program used in this lab is shown below.
-Please first save it in a file named `stack.c` and we will need it later.
+Please first save it in a file named `stack.c`, since we will need it later.
 This program has a buffer-overflow vulnerability,
 and your job is to exploit this vulnerability and gain the root privilege.
 But now, let's take some time to first understand it.
@@ -220,8 +220,8 @@ which you can execute using `./stack32`.
 
 However, this is not a `root`-owned `Set-UID` program yet.
 We can achieve this by
-first change the ownership of the program to `root` and
-then change the permission to `4755` to enable the `Set-UID` bit,
+first changing the ownership of the program to `root` and
+then changing the permission to `4755` to enable the `Set-UID` bit,
 as shown in the following command:
 ```bash
 sudo chown root stack32
@@ -239,7 +239,7 @@ sudo chmod 4755 stack64
 
 You will exploit both versions in the following steps.
 
-## Step 3: launching attack on the 32-bit version (`stack32`)
+## Step 3: Launching attack on the 32-bit version (`stack32`)
 
 To exploit the buffer-overflow vulnerability in the `stack32` program,
 you need to prepare a payload, and save it in a file named `badfile`.
@@ -248,14 +248,14 @@ After that, run
 ./stack32
 ```
 
-If your payload exploits the intented vulnerability,
+If your payload exploits the intended vulnerability,
 you should expect to see a new shell being created.
 If the payload works, renamed the file as `badfile32` to be submitted later.
 ```bash
 mv badfile badfile32
 ```
 
-## Step 4: launching attack on the 64-bit version (`stack64`)
+## Step 4: Launching attack on the 64-bit version (`stack64`)
 
 To exploit the buffer-overflow vulnerability in the `stack64` program,
 you need to prepare a payload, and save it in a file named `badfile`.
@@ -264,7 +264,7 @@ After that, run
 ./stack64
 ```
 
-If your payload exploits the intented vulnerability,
+If your payload exploits the intended vulnerability,
 you should expect to see a new shell being created.
 If the payload works, renamed the file as `badfile64` to be submitted later.
 ```bash
@@ -275,6 +275,6 @@ mv badfile badfile64
 
 A Dropbox has been created on LEARN for lab submission.
 To complete this lab,
-please submit `badfile32`, `badfil64`,
+please submit your created files `badfile32` and `badfile64`,
 as well as any scripts, screenshots, or documents
 that you may deem necessary to show your understanding of the task.
