@@ -1,0 +1,14 @@
+
+[
+    {
+        "Name": "Lab 3 - Race Conditions",
+        "Language": "English",
+        "BaseURL": "https://github.com/watspeed/systems-platform-security/tree/main",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab3/lab3-guide.md",
+                "Order": 1
+            }
+        ]
+    }
+]
