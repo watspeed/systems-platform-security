@@ -2,7 +2,7 @@
 # Lab 3 - Race Conditions
 
 Race conditions occur when the timing of events affects a program’s correctness.
-Time-of=check to time-of-use (TOCTOU) bugs are typical exmaples of race conditions.
+Time-of-check to time-of-use (TOCTOU) bugs are typical examples of race conditions.
 In security, TOCTOU bugs arise when a program checks a resource (like a file) and
 then uses it later without revalidating, leaving a window where an attacker can intervene.
 
@@ -91,15 +91,15 @@ echo "A31DZyib6WeSx31VD2NxDls4WVwwbUPE" > secret.txt
 ln -s safe.txt target.txt
 ```
 
-## Step 1: understanding the vulnerable program
+## Step 1: Understanding the vulnerable program
 
 Take a closer look at the source code of the vulnerable program
 `vuln_reader.c`. Briefly, this vulnerable program does the following:
 
-- The program first checks the underlying path behind the symbolic link
+- The program first checks that the underlying path behind the symbolic link
   `target.txt` should be `safe.txt`.
 - After a deliberate delay (`usleep`), it opens and reads the link and
-  print out its content.
+  prints out its content.
 - **Vulnerability**: Between the `readlink()` check and the `fopen()`,
   an attacker can modify the link (for example, by swapping a symbolic link).
 
@@ -114,17 +114,17 @@ And subsequently execute `vuln_reader` by:
 ```
 
 Notice what is printed out on the terminal. Without any attack, you
-should expect "Hello World" being printed on the terminal, which is
+should expect "Hello World" to be printed on the terminal, which is
 the content of `safe.txt`.
 
-## Step 2: create an exploitation script
+## Step 2: Create an exploitation script
 
 Write a Shell (`.sh`) or Python (`.py`) script that exploits the
 vulnerability in the compiled `vuln_reader` executable. Your script
 needs to invoke this `vuln_reader` executable but when it is executed,
 `vuln_reader` should print out the content in `secret.txt` instead.
 
-## Step 3: mitigate the vulnerability
+## Step 3: Mitigate the vulnerability
 
 Prepare a `safe_reader.c` that does what `vuln_reader.c` intends to do:
 i.e., print out the content of `target.txt` only after checking that
@@ -139,7 +139,7 @@ Hint: check the `freadlink` library call.
 
 A Dropbox has been created on LEARN for lab submission.
 To complete this lab,
-please submit the Shell (`.sh`) or Python (`.py`) script you prepared in step 2
-as well as the `safe_reader.c` file you prepared in step 3.
+please submit the Shell (`.sh`) or Python (`.py`) script you prepared in Step 2
+as well as the `safe_reader.c` file you prepared in Step 3.
 You can also submit any scripts, screenshots, or documents
 that you may deem necessary to show your understanding of the task.
