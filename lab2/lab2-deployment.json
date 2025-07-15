@@ -1,0 +1,13 @@
+[
+    {
+        "Name": "Lab 2 - Buffer Overflows",
+        "Language": "English",
+        "BaseURL": "https://github.com/watspeed/systems-platform-security/tree/main",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab2/lab2-guide.md",
+                "Order": 1
+            }
+        ]
+    }
+]
