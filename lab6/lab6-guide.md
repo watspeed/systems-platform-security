@@ -1,6 +1,6 @@
 
 # Lab 6: Fuzzing lab
-## Bugs That Are Hard to Catch
+# Bugs That Are Hard to Catch
 
 
 ## Overview
@@ -8,7 +8,7 @@
 Program analysis is used both by attackers and defenders to hunt for potential issues in the software.
 However, there are always code patterns that pose unique challenges for these tools to analyze. The
 goal of this lab is to help you understand the limitations of state-of-the-art program
-analysis tools and get a feeling on their advantages and disadvantages with some hands-on experience.
+analysis tools and get a feeling for their advantages and disadvantages with some hands-on experience.
 Your goal is to craft programs **with a single bug intentionally embedded** and check
 whether different program analysis tools can find the bug (evident by a program crash). If the program
 analysis tool fails to find the bug *within a computation bound*, you have found a potential limitation
@@ -41,8 +41,8 @@ Failing to do so will result in an invalid package that can’t be used to score
     - The size of `main.c` should NOT exceed 256KB (i.e., 256 × 2^10 bytes).
    
   * Your program can only invoke three library calls, all provided in `interface.h` available below.
-    - `ssize_t in(void *buffer, size_t count)` which reads in at max count bytes from stdin and store then in buffer. The return value indicates the actual number of bytes read in or a negative number indicating failure.
-    - `int out(const char *buffer)` which prints the buffer string to stdout. The return value indicates the actual number of
+    - `ssize_t in(void *buffer, size_t count)` which reads in at max `count` bytes from `stdin` and stores them in `buffer`. The return value indicates the actual number of bytes read in or a negative number indicating failure.
+    - `int out(const char *buffer)` which prints the buffer string to `stdout`. The return value indicates the actual number of
 bytes written out.
     - `void abort(void)` which forces a crash of program. Note that this is NOT the only way to crash a program.
 
@@ -77,8 +77,8 @@ void abort(void);
  * Your program can only take input from `stdin` using the provided `in()` function in `interface.h`. It should NOT take input from command line arguments nor environment variables. The size of input acquired from `stdin` should NOT exceed 1024 bytes.
  * Your program MUST be *compatible* with all program analysis tools used in this lab
 without special modification to these tools. In other words, your program can be analyzed using
-the tool invocation command provided in later part of the lab.
- * Your program should have **one and only one bug** that is intentionally planted. If any of the tool finds a crash in your program, even the crash is not caused by the intended bug, the tool is considered successful and this package cannot be used to claim victory over that tool.
+the tool invocation command provided in the later part of the lab.
+ * Your program should have **one and only one bug** that is intentionally planted. If any of the tools finds a crash in your program, even if the crash is not caused by the intended bug, the tool is considered successful and this package cannot be used to claim victory over that tool.
  * Provide a set of test cases that achieves 100% coverage (see details on `gcov` below).
     - Each test case should NOT crash the program, i.e., exiting with a non-zero status code.
     - Each test case should complete its execution in 10 seconds.
@@ -110,18 +110,17 @@ git submodule update --init
 ./scripts/ugster-up.sh
 ```
 
-Upon successful completion, you will see an ==== END OF PROVISION === mark in the terminal as the following figure:
-
-   ![](images/lab6-image1.png)
-
    - NOTE: DO NOT use --recurse-submodules to clone the submodules as it will bring in many unnecessary dependencies of AFL++ and slow down the building process significantly.
    - The `./ugster-up.sh` script will take quite some time to finish (about an hour or even two hours) so you might find utilities such as `tmux` or `screen` useful in case of unreliable SSH connections.
    - During the process, you might be prompted to upgrade or restart system services. Simply hit “Enter” to go with the default choices suggested by `apt`.
    - After provision, the entire VM will take about 30GB – 35GB storage on disk.
 
+Upon successful completion, you will see an ==== END OF PROVISION === mark in the terminal as in the following figure:
+
+   ![](images/lab6-image1.png)
 
 ## 2. Coverage tracking with `gcov`
-[`gcov`](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) is a tool you can use in conjunction with `gcc` to test code coverage in your programs. In anutshell, it tracks the the portion of code that is “covered” by a concrete execution at runtime and aggregates the coverage results from multiple runs to produce a final coverage report.
+[`gcov`](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) is a tool you can use in conjunction with `gcc` to test code coverage in your programs. In a nutshell, it tracks the portion of code that is “covered” by a concrete execution at runtime and aggregates the coverage results from multiple runs to produce a final coverage report.
 
 You can use the following `run-gcov.sh` script to check the coverage of your package. 
 ```
@@ -166,6 +165,8 @@ We use the open-source [AFL++ fuzzer](https://github.com/AFLplusplus/AFLplusplus
 You need to install docker using the following command:
 ```bash
 sudo apt update
+```
+```bash
 sudo apt install docker.io
 ```
 
@@ -173,6 +174,8 @@ Then enable and start the Docker service:
 
 ```bash
 sudo systemctl enable docker
+```
+```bash
 sudo systemctl start docker
 ```
 
@@ -185,6 +188,8 @@ docker --version
 Then, to have AFL++ easily available with everything compiled, pull the image directly from the Docker Hub using the following two commands:
 ```bash
 sudo docker pull aflplusplus/aflplusplus
+```
+```bash
 sudo docker run -ti -v /location/of/your/target:/src aflplusplus/aflplusplus
 ```
 
@@ -252,9 +257,9 @@ The code can also be found on [GitHub](https://github.com/meng-xu-cs/cs453-progr
 You can test out the sample package inside the VM via:
 
 ```
-$ cd cs453-program-analysis-platform/scripts
-$ ./run-gcov.sh pkg-sample
-$ ./run-afl.sh pkg-sample
+cd scripts
+./run-gcov.sh pkg-sample
+./run-afl.sh pkg-sample
 ```
 
 The output should obviously show that:
