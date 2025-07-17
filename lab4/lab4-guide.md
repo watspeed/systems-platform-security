@@ -1,11 +1,11 @@
 # Lab 4: Seccomp-sandboxes and Evasion Lab 
-## Escaping `seccomp`-based Sandboxes
+# Escaping `seccomp`-based Sandboxes
 
 ## Overview
 
 In this lab, we have provided four binary executable files: sandbox1, sandbox2, sandbox3, and sandbox4. Each of these programs implements a `seccomp`-based sandbox and employs some distinct filtering rules. The programs are designed to execute external programs `sploit1`, `sploit2`, `sploit3`, and `sploit4` respectively.
 
-#### Hint: You can use `seccomp-tools` [(https://github.com/david942j/seccomp-tools)](https://github.com/david942j/seccomp-tools) to get the detailed seccomp rules.
+**Hint:** You can use `seccomp-tools` [(https://github.com/david942j/seccomp-tools)](https://github.com/david942j/seccomp-tools) to get the detailed `seccomp` rules.
 
 ## Environment Setup
 
@@ -15,13 +15,15 @@ First, install required packages:
 
 ```bash
 sudo apt update
+```
+```bash
 sudo apt install gcc make strace -y
 ```
 
 Then, download and set up the lab files:
 
 ```bash
-wget https://raw.githubusercontent.com/meng-xu-cs/watspeed-platsec-course/main/lab4/files/setup.sh
+wget https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab4/files/setup.sh
 chmod +x setup.sh
 ./setup.sh
 ```
@@ -64,7 +66,7 @@ NOTE: When evaluating your work, we will replace the contents of the flag file. 
 
 Tips: 
    - [`strace`](https://man7.org/linux/man-pages/man1/strace.1.html) is a handy utility which will tell you the system calls invoked by a process.
-   - While reading the assembly can be a way to extract the seccomp-bpf rules enforced in each sandbox, it is not recommended. There are other ways of extracting the rules enforced.
+   - While reading the assembly can be a way to extract the `seccomp-bpf` rules enforced in each sandbox, it is not recommended. There are other ways of extracting the rules enforced.
 
 
 ## Submission
