@@ -1,0 +1,14 @@
+
+[
+    {
+        "Name": "Lab 4 - Seccomp-sandboxes and Evasion",
+        "Language": "English",
+        "BaseURL": "https://github.com/watspeed/systems-platform-security/tree/main",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab4/lab4-guide.md",
+                "Order": 1
+            }
+        ]
+    }
+]
