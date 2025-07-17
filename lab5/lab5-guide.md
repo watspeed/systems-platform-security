@@ -16,6 +16,10 @@ you should be able to interpret and modify access controls effectively,
 appreciate the significance of secure permission settings, and
 recognize potential security implications in real‑world scenarios.
 
+You will have to answer 6 questions as you work your way through the lab.
+Record your answers to these questions in a separate file as you work, since
+you'll be required to submit your answers for grading.
+
 ## Step 1: Basic file permissions
 
 In this step,
@@ -68,10 +72,10 @@ ls -ld shared_dir
 
 Now create two users, `alice` and `bob` on the system.
 ```bash
-adduser --disabled-password --gecos "" alice
+sudo adduser --disabled-password --gecos "" alice
 ```
 ```bash
-adduser --disabled-password --gecos "" bob
+sudo adduser --disabled-password --gecos "" bob
 ```
 
 Grant `alice` full access and `bob` read-only access using ACLs:
@@ -123,7 +127,7 @@ gcc -o show_id show_id.c
 
 Execute `./show_id` and observe its output.
 
-Now, changes the special permission bits on this executable:
+Now, change the special permission bits on this executable:
 ```bash
 sudo chown root:root show_id
 ```
@@ -150,7 +154,7 @@ mkdir public_dir
 chmod o+w public_dir
 ```
 
-Examnine the permission of this directory with
+Examine the permissions of this directory with
 ```bash
 ls -ld public_dir
 ```
@@ -201,7 +205,7 @@ Observe the result.
 
 A Dropbox has been created on LEARN for lab submission.
 To complete this lab,
-please submit a `.txt` or `.pdf` file
+please submit a `.txt`, `.doc` or `.pdf` file
 which contains your responses to the six questions (Q1 to Q6) above
 as well as any scripts, screenshots, or documents
 that you may deem necessary to show your understanding of the task.
