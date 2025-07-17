@@ -1,0 +1,15 @@
+
+
+[
+    {
+        "Name": "Lab 6 - Fuzzing",
+        "Language": "English",
+        "BaseURL": "https://github.com/watspeed/systems-platform-security/tree/main",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab6/lab6-guide.md",
+                "Order": 1
+            }
+        ]
+    }
+]
