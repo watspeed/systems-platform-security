@@ -25,7 +25,7 @@ sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=a apt-get upgrade -y
 sudo apt-get install -y build-essential automake autoconf libtool wget libssl-dev unzip
 ```
 ```bash
-wget https://download.01.org/intel-sgx/latest/linux-latest/distro/ubuntu22.04-server/sgx_linux_x64_sdk_2.25.100.3.bin -O sgx_sdk.bin
+wget https://download.01.org/intel-sgx/latest/linux-latest/distro/ubuntu22.04-server/sgx_linux_x64_sdk_2.26.100.0.bin -O sgx_sdk.bin
 ```
 ```bash
 chmod +x sgx_sdk.bin
@@ -55,7 +55,7 @@ source sgxsdk/environment
 We provide a minimal skeleton of SGX application for you to get familiar with
 SGX application development. To get the skeleton, use
 ```bash
-wget https://github.com/meng-xu-cs/watspeed-platsec-course/raw/refs/heads/main/lab7/sgx-skeleton.zip
+wget https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab7/sgx-skeleton.zip
 ```
 ```bash
 unzip sgx-skeleton.zip
@@ -81,7 +81,7 @@ There are three items in the directory:
 - `App/` directory: all information about code running in the host (potentially untrusted) environment
    * `App.cpp`: **IMPORTANT**: source code for the host application which will invoke the SGX enclave.
 
-Take a look at the file content that are marked with **IMPORTANT**,
+Take a look at the file contents that are marked with **IMPORTANT**,
 examine their code closely, and try to understand
 how the `Enclave` (in SGX) and the `App` (in host environment) might interact with each other.
 
@@ -101,24 +101,24 @@ Run the host application via:
 ./app
 ```
 
-And you will be promoted to enter an integer,
-and after that either a `Goodbye!` or `Aborting...` message,
+You will be prompted to enter an integer.
+After that, you will receive either a `Goodbye!` or `Aborting...` message,
 depending on whether you entered a valid 64-bit integer.
 
 ## Step 3: Implement the TODO items
 
 The skeleton SGX application does not do anything useful in the enclave.
 In this step, you need to extend the skeleton code so that the enclave
-computes a simple sensitive operation --- calculating the square root of an input.
+computes a simple sensitive operation --- calculating the square of an input.
 
 To be specific, the enclave function `ecall_secure_square` should:
-- Receives an integer from the host (this is passed in as argument `input`)
+- Receive an integer from the host (this is passed in as argument `input`)
 - Print the integer received using an OCALL (to be implemented)
-- Computes the square inside the enclave (to be implemented)
-- Returns the result (to be implemented)
+- Compute the square inside the enclave (to be implemented)
+- Return the result (to be implemented)
 
 The host app should:
-- Receives an integer from user input (done)
+- Receive an integer from user input (done)
 - Invoke the enclave `ecall_secure_square` using ECALL (to be implemented)
 - Display (i.e., print) the result returned by the enclave (to be implemented)
 
@@ -138,12 +138,12 @@ You can test your program
 with some concrete numbers and verify that the program is responding correctly.
 
 For example, if the input integer is 10, the output from SGX Enclave should be 100,
-hence if you run program with
+hence if you run the program with
 ```bash
 ./app
 ```
 
-And when promoted:
+And when prompted:
 >
 > Please enter an integer:
 >
@@ -157,7 +157,7 @@ You should expect the following output:
 >
 
 If you get other output on the console,
-it is very like that the program you develop has some issues.
+it is very like that the program you developed has some issues.
 
 ## Submission
 
