@@ -1,0 +1,13 @@
+[
+    {
+        "Name": "Lab 7 - Intel SGX",
+        "Language": "English",
+        "BaseURL": "https://github.com/watspeed/systems-platform-security/tree/main",
+        "Files": [
+            {
+                "RawFilePath": "https://raw.githubusercontent.com/watspeed/systems-platform-security/refs/heads/main/lab7/lab7-guide.md",
+                "Order": 1
+            }
+        ]
+    }
+]
